@@ -1,0 +1,74 @@
+graph TD
+  %% PinkGlow - Arquitetura para Debug
+  A[Cliente Browser] --> B[index.php raiz -> /public/]
+
+  subgraph Frontend[Views / Public]
+    B --> C[public/index.php - Vitrine]
+    C --> D[public/produtos/* ou fluxo]
+    D --> E[public/carrinho/adicionar.php]
+    E --> F[public/carrinho/index.php]
+    F --> G[public/checkout/*]
+    G --> H[public/pedidos.php]
+    I[public/login.php] --> J[public/cadastro.php]
+    K[public/admin/*] --> L[Proteção por usuario_tipo=admin]
+  end
+
+  subgraph Session[Session PHP]
+    S1[($_SESSION['carrinho'])] 
+    S2[($_SESSION['usuario_id/nome/tipo'])] 
+    S3[($_SESSION['flash_ok']/flash_erro'])] 
+  end
+
+  subgraph Config[Configurações]
+    CFG1[config/app.php - BASE / url_base]
+    CFG2[config/db.php - PDO PostgreSQL]
+  end
+
+  subgraph Banco[PostgreSQL - pinkglow]
+    DB1[(categorias)]
+    DB2[(produtos)]
+    DB3[(produto_variacoes)] 
+    DB4[(usuarios)]
+    DB5[(enderecos)]
+    DB6[(pedidos)]
+    DB7[(pedido_itens)]
+    DB8[(pagamentos)]
+    DB9[(cupons)]
+    DB10[(devolucoes)]
+  end
+
+  C --> CFG1
+  F --> CFG1
+  G --> CFG1
+  I --> CFG2
+  F --> CFG2
+  G --> CFG2
+  C --> CFG2
+
+  E --> S1
+  F --> S1
+  G --> S1
+  I --> S2
+  K --> S2
+  F --> S3
+  G --> S3
+
+  CFG2 --> DB1
+  CFG2 --> DB2
+  CFG2 --> DB3
+  CFG2 --> DB4
+  CFG2 --> DB5
+  CFG2 --> DB6
+  CFG2 --> DB7
+  CFG2 --> DB8
+  CFG2 --> DB9
+  CFG2 --> DB10
+
+  %% Pontos de debug destacados
+  style S1 fill:#ffe4e6,stroke:#fb7185,color:#881337
+  style S2 fill:#fef3c7,stroke:#f59e0b,color:#92400e
+  style S3 fill:#e0f2fe,stroke:#38bdf8,color:#075985
+  style DB3 fill:#dcfce7,stroke:#22c55e,color:#166534
+  style G fill:#f3e8ff,stroke:#a855f7,color:#581c87
+  style F fill:#fef2f2,stroke:#ef4444,color:#991b1b
+  style I fill:#ecfeff,stroke:#06b6d4,color:#155e75

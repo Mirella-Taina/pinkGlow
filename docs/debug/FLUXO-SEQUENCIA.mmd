@@ -1,0 +1,77 @@
+sequenceDiagram
+    title PinkGlow — Fluxo de Compra (Debug)
+
+    actor Cliente
+    participant Vitrine as public/index.php
+    participant Produto as public/produtos/* (ou direto)
+    participant CarrinhoAdd as public/carrinho/adicionar.php
+    participant Carrinho as public/carrinho/index.php
+    participant Login as public/login.php
+    participant Checkout as public/checkout/*
+    participant DB as PostgreSQL (PDO)
+    participant Pedidos as public/pedidos.php
+
+    Cliente->>Vitrine: Acessa /public/ (filtros q/preco/marca/categoria)
+    Vitrine->>DB: SELECT categorias, marcas, produtos + estoque_total (SUM variações)
+    DB-->>Vitrine: Dados da vitrine
+    Vitrine-->>Cliente: Lista produtos
+
+    Cliente->>Produto: Visualiza produto/variações
+    Produto->>DB: SELECT produto + produto_variacoes (estoque)
+    DB-->>Produto: Detalhes + variações disponíveis
+    Produto-->>Cliente: Exibe "Comprar/Adicionar"
+
+    Cliente->>CarrinhoAdd: POST variacao_id + quantidade
+    CarrinhoAdd->>DB: SELECT estoque FROM produto_variacoes WHERE id = :id
+    DB-->>CarrinhoAdd: estoque atual
+    alt estoque >= qtd
+        CarrinhoAdd->>CarrinhoAdd: $_SESSION['carrinho'][vid] += qtd
+        CarrinhoAdd-->>Cliente: Redireciona p/ carrinho
+    else sem estoque
+        CarrinhoAdd-->>Cliente: Erro / não adiciona
+    end
+
+    Cliente->>Carrinho: GET /carrinho/
+    Carrinho->>DB: Reidrata itens (preco, preco_extra, estoque, nome, imagem)
+    DB-->>Carrinho: Dados atuais
+    Carrinho->>Carrinho: Recalcula unitario = preco+preco_extra, subtotal, total. Ajusta se estoque caiu
+    Carrinho-->>Cliente: Exibe carrinho com ações (+/-/remover)
+
+    Cliente->>Carrinho: POST acao=mais/menos/atualizar
+    Carrinho->>DB: Consulta estoque da variação
+    DB-->>Carrinho: estoque
+    Carrinho->>Carrinho: Aplica RN01 (não ultrapassar). Atualiza $_SESSION
+    Carrinho-->>Cliente: Redireciona p/ carrinho
+
+    Cliente->>Checkout: Clica "Finalizar compra"
+    alt Não logado
+        Checkout-->>Cliente: Redireciona p/ login.php?erro=acesso
+        Cliente->>Login: POST email/senha
+        Login->>DB: SELECT usuario por email
+        DB-->>Login: usuario + senha_hash
+        alt credenciais válidas
+            Login->>Login: session_regenerate_id(true). Seta $_SESSION['usuario_*']
+            Login-->>Cliente: Redireciona p/ (ou admin)
+        else inválidas
+            Login-->>Cliente: Erro "credenciais"
+        end
+    end
+
+    Cliente->>Checkout: Preenche/seleciona endereço + cupom + método pagamento
+    Checkout->>DB: Valida carrinho x estoque (rechecar)
+    Checkout->>DB: BEGIN TRANSACTION
+    Checkout->>DB: INSERT pedidos (...)
+    Checkout->>DB: INSERT pedido_itens (...) (produto_id, variacao_id, quantidade, preco_unitario)
+    alt cupom aplicado
+        Checkout->>DB: UPDATE/valida cupom
+    end
+    Checkout->>DB: INSERT pagamentos (metodo, status, expira_em se PIX/BOLETO)
+    Checkout->>DB: COMMIT
+    DB-->>Checkout: pedido_id criado
+    Checkout-->>Cliente: Tela de confirmação/pagamento
+    Checkout->>Carrinho: Limpa $_SESSION['carrinho']
+
+    Cliente->>Pedidos: Acessa "Meus pedidos"
+    Pedidos->>DB: SELECT pedidos + itens por usuario_id
+    DB-->>Pedidos: Histórico
+    Pedidos-->>Cliente: Lista status (pendente/cancelado/entregue)

@@ -1,0 +1,603 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pink &amp; Glow Cosméticos | Realce Sua Beleza</title>
+<!-- Google Fonts for Editorial Luxury Feel -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#FDF2F5',
+              100: '#FCE7F0',
+              200: '#F9D0DF',
+              300: '#F4A8C4',
+              400: '#F472B6',
+              500: '#E11D74',
+              600: '#DB2777',
+              700: '#BE185D',
+              800: '#9D174D',
+              900: '#58102B',
+            },
+            warmnude: {
+              50: '#FDFBFA',
+              100: '#F7F3EF',
+              200: '#EFE7DF',
+              300: '#E2D3C4',
+              800: '#463A38',
+            },
+            gold: {
+              300: '#FCD34D',
+              400: '#F59E0B',
+              500: '#D4AF37',
+              600: '#B48811'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styling for Soft Glow and Fine Borders -->
+<style data-purpose="custom-utilities">
+    .glow-shadow {
+      box-shadow: 0 10px 30px -10px rgba(219, 39, 119, 0.15);
+    }
+    .gold-border-gradient {
+      border-image: linear-gradient(to right, #F59E0B, #DB2777) 1;
+    }
+    .blur-blob {
+      filter: blur(80px);
+    }
+  </style>
+</head>
+<body class="bg-[#FFFDFE] text-[#4A1D2F] font-sans antialiased selection:bg-pink-100 selection:text-brand-700">
+<!-- BEGIN: TopAnnouncementBar -->
+<!-- Top promotional banner with free shipping notice and quick store features -->
+<div class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-900 text-white text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2" data-purpose="top-notice-bar">
+<span class="inline-block w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+<span>FRETE GRÁTIS nas compras a partir de R$ 149,90 | Parcele em até 6x sem juros ou 5% OFF no PIX</span>
+<span class="text-gold-300 ml-1 font-semibold">CUPOM: GLOW10</span>
+</div>
+<!-- END: TopAnnouncementBar -->
+<!-- BEGIN: MainHeader -->
+<!-- Primary brand header with navigation links, search, user actions and staff login button -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20 gap-4">
+<!-- Brand Logo -->
+<a class="flex-shrink-0 transition-transform hover:scale-[1.02]" data-purpose="site-logo" href="#inicio">
+<img alt="Logo Pink &amp; Glow Cosméticos" class="h-14 sm:h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdT7m-kN25fGy295vw59szowX6ROBJ007WrC9r0Jmy15HM1En7ax2Aedzu-rfcmF6fM6GycSefh8hOPmqXch3Y7LxgkgbR2NnhCOQuk3FGA_rMujcC_Jbe9fAJ1_KepGKnea4Kz2QFCiP9_fzj1YeGdTaF-8HpjQocT3f5uo68JdvEdKLZWe6PHsvDWJisxg4Qyy8at6hWzIca4ugr2BDWKL3XwRWSSpznCvodlf-NDm-e4I5RcW-pjA">
+</a>
+<!-- Desktop Navigation Bar -->
+<nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold tracking-wide text-brand-900" data-purpose="desktop-nav">
+<a class="text-brand-600 transition-colors hover:text-brand-700 border-b-2 border-brand-500 pb-0.5" href="#inicio">Início</a>
+<a class="hover:text-brand-600 transition-colors" href="#vitrine">Vitrine &amp; Produtos</a>
+<a class="hover:text-brand-600 transition-colors" href="#categorias">Categorias</a>
+<a class="hover:text-brand-600 transition-colors" href="#contato">Contato</a>
+<a class="inline-flex items-center text-brand-700 hover:text-brand-800" href="#promocoes">
+<span class="mr-1 text-gold-500">✨</span> Ofertas Especiais
+          </a>
+</nav>
+<!-- Search Bar -->
+<div class="hidden md:flex flex-1 max-w-xs relative items-center" data-purpose="quick-search">
+<input class="w-full bg-warmnude-50 border border-pink-200 rounded-full py-2 pl-4 pr-10 text-xs sm:text-sm text-brand-900 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400 placeholder:text-pink-300 transition-all shadow-inner" placeholder="Buscar batom, blush, rímel..." type="search">
+<button aria-label="Pesquisar" class="absolute right-3 text-brand-400 hover:text-brand-600" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Action Items: Admin login, User Account, Shopping Cart Bag -->
+<div class="flex items-center gap-3" data-purpose="header-user-actions">
+<!-- Staff/Employee Login Link as in wireframe 'login do funcionario' -->
+<a class="hidden sm:inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full border border-pink-200 text-brand-700 hover:bg-pink-50 hover:border-brand-300 transition" href="#admin-login">
+<svg class="w-3.5 h-3.5 mr-1 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+            Área do Funcionário
+          </a>
+<!-- Customer Login / Profile -->
+<a class="p-2 text-brand-800 hover:text-brand-600 transition rounded-full hover:bg-pink-50" href="#entrar" title="Minha Conta">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Cart Button with Counter Badge -->
+<a class="relative p-2 text-brand-800 hover:text-brand-600 transition rounded-full hover:bg-pink-50" href="#carrinho" title="Sacola de Compras">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform bg-brand-600 rounded-full shadow-sm">
+              3
+            </span>
+</a>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main id="inicio">
+<!-- BEGIN: HeroSection -->
+<!-- Editorial style hero header from index.php wireframe: 'venha realçar sua beleza!' -->
+<section class="relative overflow-hidden bg-gradient-to-b from-brand-50/60 via-[#FFF9FB] to-white py-12 lg:py-20">
+<!-- Decorative background blur accents -->
+<div class="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-pink-200/40 blur-blob pointer-events-none"></div>
+<div class="absolute top-1/2 -right-20 w-96 h-96 rounded-full bg-amber-100/50 blur-blob pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Left Column: Copy & Actions -->
+<div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+<div class="inline-flex items-center gap-2 bg-pink-100/80 px-3.5 py-1.5 rounded-full border border-pink-200 text-brand-700 text-xs font-semibold uppercase tracking-wider">
+<span>🌸</span> Nova Coleção Glow Radiance 2025
+            </div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-900 tracking-tight leading-[1.15]">
+              Venha realçar <br>
+<span class="italic font-normal bg-gradient-to-r from-brand-600 via-brand-500 to-amber-600 bg-clip-text text-transparent">
+                sua beleza natural!
+              </span>
+</h1>
+<p class="text-base sm:text-lg text-brand-800/80 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              Texturas sedosas, alta pigmentação e fórmulas enriquecidas com ácido hialurônico para um acabamento luminoso e sofisticado em qualquer tom de pele.
+            </p>
+<!-- Call to Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+<a class="w-full sm:w-auto text-center bg-gradient-to-r from-brand-600 to-brand-700 text-white font-semibold text-sm px-8 py-3.5 rounded-full shadow-lg shadow-pink-500/25 hover:from-brand-700 hover:to-brand-800 hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5" href="#cadastro">
+                Cadastre-se para começar as compras
+              </a>
+<a class="w-full sm:w-auto text-center border-2 border-brand-600 text-brand-700 font-semibold text-sm px-7 py-3.5 rounded-full hover:bg-pink-50 transition-colors" href="#vitrine">
+                Explorar Vitrine
+              </a>
+</div>
+<!-- Value Propositions Points -->
+<div class="pt-6 grid grid-cols-3 gap-2 sm:gap-4 border-t border-pink-100/80 max-w-lg mx-auto lg:mx-0 text-left">
+<div>
+<p class="text-xs uppercase tracking-wider text-brand-400 font-bold">100% Cruelty Free</p>
+<p class="text-xs text-brand-900/70 font-medium">Sem testes em animais</p>
+</div>
+<div>
+<p class="text-xs uppercase tracking-wider text-brand-400 font-bold">Dermatológico</p>
+<p class="text-xs text-brand-900/70 font-medium">Testado e aprovado</p>
+</div>
+<div>
+<p class="text-xs uppercase tracking-wider text-brand-400 font-bold">Entrega Rápida</p>
+<p class="text-xs text-brand-900/70 font-medium">Envio imediato no Brasil</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Glamour Display Image -->
+<div class="lg:col-span-5 flex justify-center">
+<div class="relative w-full max-w-md">
+<div class="relative overflow-hidden rounded-[2.5rem] border-4 border-white shadow-2xl glow-shadow bg-gradient-to-tr from-pink-200 via-rose-100 to-amber-50 aspect-[4/5]">
+<img alt="Modelo maquiada com produtos Pink &amp; Glow exibindo pele radiante e iluminada" class="w-full h-full object-cover object-center transform transition duration-500 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwDxfKmzU-6n6fG4m2MYCcN-j3PonzQ0g3RLKjJsEfQ9hhvFpRK-hSyTbs-5aF72jr5h_c2gofDM2KQnpgo2H4JaCtcHMzBgcWgv3I_8cAOyWO8BBT1-7M9xNePrZaLEDoLDrcdLFElAYQhif35Do5smwP-ov5WeIiG5y283Ba1faiDyqE0BCdLZlk6cmHo8Em70rj3VpoocjIPDRedEfaxV8SXoz1HWzvE4x8AiRHrQmbAraIXrVJ">
+<div class="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-transparent"></div>
+<!-- Floating Card Detail -->
+<div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/60 shadow-lg text-left">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-[11px] uppercase tracking-wider font-bold text-brand-600">Destaque da Temporada</span>
+<h4 class="font-serif font-bold text-brand-900 text-sm">Glow Skin Finish</h4>
+</div>
+<span class="text-xs font-semibold px-2.5 py-1 bg-brand-100 text-brand-700 rounded-full">
+                      ★ 4.9 (1.8k)
+                    </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: QuickPillCategories -->
+<!-- Pill buttons representing categories as drawn in the wireframe: blush, rimel, contorno etc. -->
+<section class="py-8 bg-white border-y border-pink-100/70" id="categorias">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-5">
+<span class="text-xs uppercase tracking-widest text-brand-500 font-bold">Navegação Rápida</span>
+<h2 class="text-xl sm:text-2xl font-serif font-bold text-brand-900">Explore por Categoria</h2>
+</div>
+<div class="flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto pb-2 scrollbar-none">
+<button class="px-5 py-2.5 rounded-full text-xs font-semibold bg-brand-600 text-white shadow-sm whitespace-nowrap transition-all">
+            Todos os Cosméticos
+          </button>
+<button class="px-5 py-2.5 rounded-full text-xs font-semibold bg-pink-50 text-brand-800 hover:bg-brand-100 hover:text-brand-900 border border-pink-200 whitespace-nowrap transition-all">
+            Blush
+          </button>
+<button class="px-5 py-2.5 rounded-full text-xs font-semibold bg-pink-50 text-brand-800 hover:bg-brand-100 hover:text-brand-900 border border-pink-200 whitespace-nowrap transition-all">
+            Rímel &amp; Cílios
+          </button>
+<button class="px-5 py-2.5 rounded-full text-xs font-semibold bg-pink-50 text-brand-800 hover:bg-brand-100 hover:text-brand-900 border border-pink-200 whitespace-nowrap transition-all">
+            Contorno Facial
+          </button>
+<button class="px-5 py-2.5 rounded-full text-xs font-semibold bg-pink-50 text-brand-800 hover:bg-brand-100 hover:text-brand-900 border border-pink-200 whitespace-nowrap transition-all">
+            Batons &amp; Gloss
+          </button>
+<button class="px-5 py-2.5 rounded-full text-xs font-semibold bg-pink-50 text-brand-800 hover:bg-brand-100 hover:text-brand-900 border border-pink-200 whitespace-nowrap transition-all">
+            Bases &amp; Corretivos
+          </button>
+<button class="px-5 py-2.5 rounded-full text-xs font-semibold bg-pink-50 text-brand-800 hover:bg-brand-100 hover:text-brand-900 border border-pink-200 whitespace-nowrap transition-all">
+            Iluminadores
+          </button>
+<button class="px-5 py-2.5 rounded-full text-xs font-semibold bg-pink-50 text-brand-800 hover:bg-brand-100 hover:text-brand-900 border border-pink-200 whitespace-nowrap transition-all">
+            Skincare Preparatório
+          </button>
+</div>
+</div>
+</section>
+<!-- END: QuickPillCategories -->
+<!-- BEGIN: ProductShowcaseGrid -->
+<!-- Grid showcase of makeup products matching the catalog box layout in the wireframe -->
+<section class="py-16 bg-[#FFFDFE]" id="vitrine">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-pink-100 gap-4">
+<div>
+<span class="text-xs uppercase tracking-widest text-brand-600 font-bold">Seleção Especial</span>
+<h2 class="text-3xl font-serif font-bold text-brand-900 tracking-tight">Vitrine Pink &amp; Glow</h2>
+<p class="text-sm text-brand-800/70 mt-1">Os queridinhos dos maquiadores e influenciadoras de beleza.</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs text-brand-700 font-medium">Ordenar por:</span>
+<select class="text-xs rounded-lg border-pink-200 bg-white py-1.5 px-3 font-medium text-brand-900 focus:border-brand-500 focus:ring-brand-500">
+<option>Mais Vendidos</option>
+<option>Menor Preço</option>
+<option>Maior Preço</option>
+<option>Lançamentos</option>
+</select>
+</div>
+</div>
+<!-- 6 Item Grid as reflected in wireframe layout boxes -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Product Card 1: Blush -->
+<article class="group bg-white rounded-2xl border border-pink-100/90 p-4 transition-all duration-300 hover:shadow-xl hover:border-pink-300 flex flex-col justify-between" data-purpose="product-card">
+<div>
+<div class="relative rounded-xl overflow-hidden bg-rose-50 aspect-square mb-4">
+<img alt="Blush Líquido Glow Soft Rose" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUlr_6mmDtNnDzE_fLztOIN6ooms51ZjnJHBi0LdHuDcc4m0jW76higJ4F-47ZeXytIrD78eOmudeBZtBkBQ9ydzXDqn-1yD20jJ2B5WrKU-t5Xd0-jMdZmlaGf9JnRAlFoou_qT8HLXBqJ1n_svKW5QVz1qhLcfoPwJ9esh_ni01GEDxGmV2VJ-bgyM8AXALlLXRH2URYS0F8fMKu0xsMd4gtTb711LshMDT9lvrvijDgI46eqEAq">
+<span class="absolute top-2.5 left-2.5 bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Top 1
+                </span>
+<button aria-label="Favoritar" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-brand-700 flex items-center justify-center hover:bg-white hover:text-brand-500 shadow-sm transition" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<div class="space-y-1.5">
+<span class="text-[11px] font-semibold text-brand-500 tracking-wide uppercase">Blush Cremoso</span>
+<h3 class="text-base font-serif font-bold text-brand-900 group-hover:text-brand-600 transition-colors">
+                  Blush Líquido Glow Soft Rose
+                </h3>
+<!-- Rating -->
+<div class="flex items-center text-xs text-amber-500 gap-1">
+<span>★★★★★</span>
+<span class="text-brand-800/60 text-[11px] font-sans">(428)</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-pink-50 flex items-center justify-between">
+<div>
+<span class="text-xs text-brand-800/60 line-through">R$ 69,90</span>
+<div class="text-xl font-bold text-brand-900 font-sans">R$ 54,90</div>
+</div>
+<button class="px-4 py-2 bg-pink-50 text-brand-700 hover:bg-brand-600 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border border-pink-200 hover:border-brand-600 shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                Adicionar
+              </button>
+</div>
+</article>
+<!-- Product Card 2: Rímel -->
+<article class="group bg-white rounded-2xl border border-pink-100/90 p-4 transition-all duration-300 hover:shadow-xl hover:border-pink-300 flex flex-col justify-between" data-purpose="product-card">
+<div>
+<div class="relative rounded-xl overflow-hidden bg-rose-50 aspect-square mb-4">
+<img alt="Máscara de Cílios Volume &amp; Curvatura Glam" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnTEU1w1bOA5c4msmf_LXWhKGLi5E9c9ddVQ5QoO0pUXAjyOaihRXjVqDGA9GXA2B9VPzGDpbBkQveckDsgGUtlVLUy_-LXValERBo1BFifrQzI3HHmKqGsnknREoiDmBwCl_j_F1SgC4DZDwjMrjyhE_kXIPa4YfwuZiY2r3EUqmiPPrSv0PlqHqab6lWNdmfneLUjkMnk0gtG9lHjubEmorVknRErPe3y75YUkRIvNQc_NWjQNt0">
+<span class="absolute top-2.5 left-2.5 bg-gold-500 text-brand-950 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Destaque
+                </span>
+<button aria-label="Favoritar" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-brand-700 flex items-center justify-center hover:bg-white hover:text-brand-500 shadow-sm transition" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<div class="space-y-1.5">
+<span class="text-[11px] font-semibold text-brand-500 tracking-wide uppercase">Cílios &amp; Olhos</span>
+<h3 class="text-base font-serif font-bold text-brand-900 group-hover:text-brand-600 transition-colors">
+                  Máscara de Cílios Volume Intenso
+                </h3>
+<div class="flex items-center text-xs text-amber-500 gap-1">
+<span>★★★★★</span>
+<span class="text-brand-800/60 text-[11px] font-sans">(312)</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-pink-50 flex items-center justify-between">
+<div>
+<span class="text-xs text-brand-800/60 line-through">R$ 59,90</span>
+<div class="text-xl font-bold text-brand-900 font-sans">R$ 48,00</div>
+</div>
+<button class="px-4 py-2 bg-pink-50 text-brand-700 hover:bg-brand-600 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border border-pink-200 hover:border-brand-600 shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                Adicionar
+              </button>
+</div>
+</article>
+<!-- Product Card 3: Contorno -->
+<article class="group bg-white rounded-2xl border border-pink-100/90 p-4 transition-all duration-300 hover:shadow-xl hover:border-pink-300 flex flex-col justify-between" data-purpose="product-card">
+<div>
+<div class="relative rounded-xl overflow-hidden bg-rose-50 aspect-square mb-4">
+<img alt="Paleta de Contorno Facial Sculpt Perfection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIbvQNRhKVCZUmhZ6TK9DQgod7GwMAu_uLjjbOvqekVRUxQDBFV2KO31G2-aarw7cUcsCQBeUg3nbWFxZ--tfSuacauXUXxvsmMaxHBZABqb-zlyAcnpwB7QC-YZ81bZUTC77C-T0gn8XMQ70mD-yNHwR3wxxk03l2pSPPglm53Hc_6riD0dXbKcGTtH-7lkMgp_q9ujsNrEbND_R7Woug8AbK9ETizgREIgSby4vwNMeF0uz-wCzz">
+<button aria-label="Favoritar" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-brand-700 flex items-center justify-center hover:bg-white hover:text-brand-500 shadow-sm transition" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<div class="space-y-1.5">
+<span class="text-[11px] font-semibold text-brand-500 tracking-wide uppercase">Contorno &amp; Definição</span>
+<h3 class="text-base font-serif font-bold text-brand-900 group-hover:text-brand-600 transition-colors">
+                  Paleta Contorno Sculpt 3 Cores
+                </h3>
+<div class="flex items-center text-xs text-amber-500 gap-1">
+<span>★★★★☆</span>
+<span class="text-brand-800/60 text-[11px] font-sans">(198)</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-pink-50 flex items-center justify-between">
+<div>
+<span class="text-xs text-brand-800/60">Em até 3x</span>
+<div class="text-xl font-bold text-brand-900 font-sans">R$ 79,90</div>
+</div>
+<button class="px-4 py-2 bg-pink-50 text-brand-700 hover:bg-brand-600 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border border-pink-200 hover:border-brand-600 shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                Adicionar
+              </button>
+</div>
+</article>
+<!-- Product Card 4: Batom & Gloss -->
+<article class="group bg-white rounded-2xl border border-pink-100/90 p-4 transition-all duration-300 hover:shadow-xl hover:border-pink-300 flex flex-col justify-between" data-purpose="product-card">
+<div>
+<div class="relative rounded-xl overflow-hidden bg-rose-50 aspect-square mb-4">
+<img alt="Batom Acetinado Velvet Glow Rosa Vintage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAChjOw_FBP3B_L8CinCtqXeIJq343C8y0BOeoQsrHifZXnbppn4wVqnUJ_xNA41allOl0swt3G4cvz6KUSUUbW3dhwKZxz9s9ujgcAx9MRJ7GVVBXHlCHe8N_x-97LuMb1vJM-QDmO9dtjJ5bwl-M6Ch1qb-_PdmkRMFFbzwhYojaqDVLx_NQ4habxQGwJFpwkTBwOwxP0e6Iw_3juV7vJ11luGMDa6Bsk5fdCIW3Dhkf6SIEJR3_J">
+<span class="absolute top-2.5 left-2.5 bg-pink-100 text-brand-700 border border-brand-200 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Vegano
+                </span>
+<button aria-label="Favoritar" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-brand-700 flex items-center justify-center hover:bg-white hover:text-brand-500 shadow-sm transition" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<div class="space-y-1.5">
+<span class="text-[11px] font-semibold text-brand-500 tracking-wide uppercase">Lábios</span>
+<h3 class="text-base font-serif font-bold text-brand-900 group-hover:text-brand-600 transition-colors">
+                  Batom Acetinado Velvet Glow
+                </h3>
+<div class="flex items-center text-xs text-amber-500 gap-1">
+<span>★★★★★</span>
+<span class="text-brand-800/60 text-[11px] font-sans">(541)</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-pink-50 flex items-center justify-between">
+<div>
+<span class="text-xs text-brand-800/60">6 tons disponíveis</span>
+<div class="text-xl font-bold text-brand-900 font-sans">R$ 39,90</div>
+</div>
+<button class="px-4 py-2 bg-pink-50 text-brand-700 hover:bg-brand-600 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border border-pink-200 hover:border-brand-600 shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                Adicionar
+              </button>
+</div>
+</article>
+<!-- Product Card 5: Base Fluida -->
+<article class="group bg-white rounded-2xl border border-pink-100/90 p-4 transition-all duration-300 hover:shadow-xl hover:border-pink-300 flex flex-col justify-between" data-purpose="product-card">
+<div>
+<div class="relative rounded-xl overflow-hidden bg-rose-50 aspect-square mb-4">
+<img alt="Base Fluida Iluminadora Efeito Segunda Pele" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB3Omlm6Lh_iZ7KgzAV1rov-8I5Xnb2elXhkBzRhrts04_Eteq3XQy00F8LNUpY3zM1uepT9g9QTzsWlCHAZinklhgYvN09iBpvWaOyPb2TVVr4Xz1tCw6iHPHykjoXM-lfg2dQ_wAM8O8uGIOJ6LdykM3h4A2__eXT3d7jjf1gOwujOWj_tpNonRDkmSjziDWqxK3rM5egaB-D4Ox9K-NbcKXMUThMjyw2ilIVfI8sL00Iad7Znrt">
+<span class="absolute top-2.5 left-2.5 bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  FPS 30
+                </span>
+<button aria-label="Favoritar" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-brand-700 flex items-center justify-center hover:bg-white hover:text-brand-500 shadow-sm transition" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<div class="space-y-1.5">
+<span class="text-[11px] font-semibold text-brand-500 tracking-wide uppercase">Pele &amp; Cobertura</span>
+<h3 class="text-base font-serif font-bold text-brand-900 group-hover:text-brand-600 transition-colors">
+                  Base Fluida Efeito Segunda Pele
+                </h3>
+<div class="flex items-center text-xs text-amber-500 gap-1">
+<span>★★★★★</span>
+<span class="text-brand-800/60 text-[11px] font-sans">(670)</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-pink-50 flex items-center justify-between">
+<div>
+<span class="text-xs text-brand-800/60 line-through">R$ 109,00</span>
+<div class="text-xl font-bold text-brand-900 font-sans">R$ 89,90</div>
+</div>
+<button class="px-4 py-2 bg-pink-50 text-brand-700 hover:bg-brand-600 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border border-pink-200 hover:border-brand-600 shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                Adicionar
+              </button>
+</div>
+</article>
+<!-- Product Card 6: Iluminador -->
+<article class="group bg-white rounded-2xl border border-pink-100/90 p-4 transition-all duration-300 hover:shadow-xl hover:border-pink-300 flex flex-col justify-between" data-purpose="product-card">
+<div>
+<div class="relative rounded-xl overflow-hidden bg-rose-50 aspect-square mb-4">
+<img alt="Iluminador Compacto Champagne Glow Shine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3mHSZNJ_U8EKD2cQSH1vcN2h-MgRBKH171XWBCUQO3vudRiJJqzKF1BNnhAvFSCscZUES_AYZE_rFTS65mszYa0cVWQgeZ1jTFdYtL5cSQUGvfx2j5NmCbtsTh7EHS-xQimaAQwsLEUx1jAJiui8dd8KHsQ3DOiEcn0SI2KYn4x7bIB3kQaNvB3zY6SyMw_7ZDyrxKdPLGuEuQSFHRMCkQm5xxeA8q9_ouJTDh6mQrFZKNr_S0lNa">
+<span class="absolute top-2.5 left-2.5 bg-gold-400 text-brand-950 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Brilho Ouro
+                </span>
+<button aria-label="Favoritar" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-brand-700 flex items-center justify-center hover:bg-white hover:text-brand-500 shadow-sm transition" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<div class="space-y-1.5">
+<span class="text-[11px] font-semibold text-brand-500 tracking-wide uppercase">Iluminação Facial</span>
+<h3 class="text-base font-serif font-bold text-brand-900 group-hover:text-brand-600 transition-colors">
+                  Iluminador Champagne Glow Shine
+                </h3>
+<div class="flex items-center text-xs text-amber-500 gap-1">
+<span>★★★★★</span>
+<span class="text-brand-800/60 text-[11px] font-sans">(489)</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-pink-50 flex items-center justify-between">
+<div>
+<span class="text-xs text-brand-800/60 line-through">R$ 65,00</span>
+<div class="text-xl font-bold text-brand-900 font-sans">R$ 52,90</div>
+</div>
+<button class="px-4 py-2 bg-pink-50 text-brand-700 hover:bg-brand-600 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border border-pink-200 hover:border-brand-600 shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                Adicionar
+              </button>
+</div>
+</article>
+</div>
+<!-- View more products button -->
+<div class="mt-12 text-center">
+<a class="inline-flex items-center px-8 py-3 rounded-full border border-brand-300 text-brand-800 font-semibold text-sm hover:bg-pink-50 transition" href="#consultar">
+            Carregar mais produtos da coleção
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+</div>
+</div>
+</section>
+<!-- END: ProductShowcaseGrid -->
+<!-- BEGIN: PromoBannerSection -->
+<!-- Special coupon block with quick Pix and Card reassurance -->
+<section class="py-12 bg-gradient-to-r from-pink-100 via-brand-50 to-pink-100" id="promocoes">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="rounded-3xl bg-white border border-pink-200 p-8 sm:p-12 shadow-md flex flex-col lg:flex-row items-center justify-between gap-8">
+<div class="space-y-2 text-center lg:text-left">
+<span class="text-xs uppercase tracking-wider font-bold text-brand-600">Cupom de Primeira Compra</span>
+<h3 class="text-2xl sm:text-3xl font-serif font-bold text-brand-900">
+              Ganhe 15% OFF no seu primeiro pedido
+            </h3>
+<p class="text-sm text-brand-800/80 max-w-xl">
+              Utilize o código promocional no carrinho de compras e receba seus produtos com brindes exclusivos.
+            </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+<div class="px-5 py-3 border-2 border-dashed border-brand-400 bg-pink-50 rounded-xl text-center">
+<span class="text-xs text-brand-700 block font-medium">CÓDIGO:</span>
+<span class="text-lg font-mono font-bold text-brand-900 tracking-wider">BEMVINDA15</span>
+</div>
+<button class="w-full sm:w-auto px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-xl shadow-md transition" onclick="navigator.clipboard.writeText('BEMVINDA15'); alert('Cupom BEMVINDA15 copiado com sucesso!');" type="button">
+              Copiar Cupom
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PromoBannerSection -->
+<!-- BEGIN: QuickCartSummaryDrawerMini -->
+<!-- Floating Quick Access for Wireframe 'tela do carrinho' shortcut -->
+<aside class="fixed bottom-6 right-6 z-30" data-purpose="floating-cart-anchor">
+<a class="flex items-center gap-3 bg-brand-700 text-white pl-4 pr-5 py-3 rounded-full shadow-2xl hover:bg-brand-800 transition transform hover:-translate-y-1 group" href="#carrinho">
+<div class="relative">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="absolute -top-1 -right-2 bg-gold-400 text-brand-950 font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">3</span>
+</div>
+<div class="text-left text-xs leading-tight">
+<div class="font-bold">Sacola (3 itens)</div>
+<div class="text-pink-200">Total: R$ 182,80</div>
+</div>
+</a>
+</aside>
+<!-- END: QuickCartSummaryDrawerMini -->
+</main>
+<!-- BEGIN: MainFooter -->
+<!-- Site footer complete with corporate links, payment methods and copyright -->
+<footer class="bg-brand-900 text-pink-100 pt-16 pb-12 border-t border-brand-800" id="contato">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-brand-800/80">
+<!-- Brand Info -->
+<div class="lg:col-span-2 space-y-4">
+<div class="bg-white p-2 rounded-lg inline-block">
+<img alt="Logo Pink &amp; Glow" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdT7m-kN25fGy295vw59szowX6ROBJ007WrC9r0Jmy15HM1En7ax2Aedzu-rfcmF6fM6GycSefh8hOPmqXch3Y7LxgkgbR2NnhCOQuk3FGA_rMujcC_Jbe9fAJ1_KepGKnea4Kz2QFCiP9_fzj1YeGdTaF-8HpjQocT3f5uo68JdvEdKLZWe6PHsvDWJisxg4Qyy8at6hWzIca4ugr2BDWKL3XwRWSSpznCvodlf-NDm-e4I5RcW-pjA">
+</div>
+<p class="text-xs text-pink-200/80 leading-relaxed max-w-sm">
+            Pink &amp; Glow Cosméticos — Celebrando a autenticidade e o brilho único de cada mulher com fórmulas modernas, textura leve e acabamento radiante.
+          </p>
+<div class="flex items-center space-x-3 text-pink-300">
+<span class="text-xs font-semibold">Siga-nos:</span>
+<span class="text-xs">@pinkandglow.makeup</span>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="text-sm font-serif font-bold text-white mb-4 tracking-wider uppercase">Menu</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="hover:text-white transition" href="#inicio">Início</a></li>
+<li><a class="hover:text-white transition" href="#vitrine">Vitrine Completa</a></li>
+<li><a class="hover:text-white transition" href="#categorias">Categorias</a></li>
+<li><a class="hover:text-white transition" href="#promocoes">Cupons &amp; Ofertas</a></li>
+<li><a class="hover:text-white transition" href="#carrinho">Minha Sacola</a></li>
+</ul>
+</div>
+<!-- Customer Service -->
+<div>
+<h4 class="text-sm font-serif font-bold text-white mb-4 tracking-wider uppercase">Atendimento</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="hover:text-white transition" href="#faq">Central de Ajuda</a></li>
+<li><a class="hover:text-white transition" href="#trocas">Trocas e Devoluções</a></li>
+<li><a class="hover:text-white transition" href="#frete">Prazos e Entregas</a></li>
+<li><a class="hover:text-white transition" href="#rastreio">Rastrear Pedido</a></li>
+<li><a class="hover:text-white transition" href="#fale-conosco">contato@pinkeglow.com.br</a></li>
+</ul>
+</div>
+<!-- Admin & Staff Portal Links as in wireframe -->
+<div>
+<h4 class="text-sm font-serif font-bold text-white mb-4 tracking-wider uppercase">Corporativo</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="hover:text-white transition" href="#admin">Página do Admin</a></li>
+<li><a class="hover:text-white transition" href="#relatorio">Relatórios de Pedidos</a></li>
+<li><a class="hover:text-white transition" href="#estoque">Controle de Estoque</a></li>
+<li><a class="hover:text-white transition" href="#consultar-cliente">Consulta de Clientes</a></li>
+<li><a class="text-gold-300 font-semibold hover:underline" href="#login-funcionario">Portal do Funcionário →</a></li>
+</ul>
+</div>
+</div>
+<!-- Footer Bottom Details: Payment & Copyright -->
+<div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-pink-300/70 gap-4">
+<div>
+          © 2025 Pink &amp; Glow Cosméticos Ltda. Todos os direitos reservados. CNPJ: 00.000.000/0001-00
+        </div>
+<!-- Payment Badges Reassurance -->
+<div class="flex items-center gap-3">
+<span class="text-[11px] font-medium text-pink-200">Formas de Pagamento:</span>
+<span class="px-2 py-0.5 bg-brand-800 rounded text-[10px] text-white font-mono">PIX 5% OFF</span>
+<span class="px-2 py-0.5 bg-brand-800 rounded text-[10px] text-white">Cartão de Crédito</span>
+<span class="px-2 py-0.5 bg-brand-800 rounded text-[10px] text-white">Boleto</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- Interactivity Script for Mini-behaviors -->
+<script data-purpose="interaction-handlers">
+    // Visual feedback for Add to Bag buttons
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.innerText.includes('Adicionar')) {
+        btn.addEventListener('click', function() {
+          const originalText = this.innerHTML;
+          this.innerHTML = '✓ Adicionado!';
+          this.classList.add('bg-brand-600', 'text-white');
+          setTimeout(() => {
+            this.innerHTML = originalText;
+            this.classList.remove('bg-brand-600', 'text-white');
+          }, 1800);
+        });
+      }
+    });
+  </script>
+</body></html>

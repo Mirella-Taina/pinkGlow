@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-0od"?>
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff6b9d"/>
+      <stop offset="45%" stop-color="#ff8c3a"/>
+      <stop offset="100%" stop-color="#ff3b81"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="80%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#fff3cd" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#ffb347" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ff8c3a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="20%" cy="90%" r="35%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="40"/>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <circle cx="950" cy="150" r="220" fill="url(#glow1)" filter="url(#blur"/>
+  <circle cx="250" cy="450" r="180" fill="url(#glow2)" filter="url(#blur)"/>
+  <circle cx="980" cy="280" r="140" fill="#ffffff" opacity="0.15" filter="url(#softGlow)"/>
+  <circle cx="200" cy="120" r="90" fill="#ffffff" opacity="0.12" filter="url(#softGlow)"/>
+  <g opacity="0.8">
+    <circle cx="150,150" r="2" fill="#fff5f7"/>
+    <circle cx="175",175" r="1.8" fill="#fff5f7"/>
+    <circle cx="200",140" r="2.2" fill="#fff5f7"/>
+    <circle cx="850",100" r="2" fill="#fff8dc"/>
+    <circle cx="880",130" r="1.8" fill="#fff8dc"/>
+    <circle cx="910",110" r="2.1" fill="#fff8dc"/>
+    <circle cx="950",400" r="2" fill="#ffffff"/>
+    <circle cx="980",430" r="1.9" fill="#ffffff"/>
+    <circle cx="1010",410" r="2.2" fill="#ffffff"/>
+  </g>
+  <path d="M 100,300 C 150,200 350,150 600,150 C850,150 1050,200 1100,300 L1100,600 L100,600 Z" fill="#ffffff" opacity="0.08"/>
+  <g opacity="0.12">
+    <ellipse cx="700" cy="520" rx="180" ry="40" fill="#000000"/>
+  </g>
+  <text x="80" y="320" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="64" font-weight="700" fill="#ffffff" letter-spacing="-0.02em" style="filter: drop-shadow(0 4x4px rgba(122,0,60,0.25));">CORPORAL &amp; GLOW</text>
+  <text x="80" y="380" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="24" font-weight="500" fill="#fff5f7" opacity="0.9">Hidratação • Brilho • Autocuidado</text>
+</svg>

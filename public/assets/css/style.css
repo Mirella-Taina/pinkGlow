@@ -1,0 +1,8 @@
+/* Pink Glow — estilos custom complementares ao Tailwind CDN */
+body {
+  font-family: 'Plus Jakarta Sans', Inter, sans-serif;
+}
+
+.glow-shadow {
+  box-shadow: 0 10px 30px -10px rgba(219, 39, 119, 0.15);
+}

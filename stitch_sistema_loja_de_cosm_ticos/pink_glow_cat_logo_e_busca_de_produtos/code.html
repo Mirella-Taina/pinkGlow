@@ -1,0 +1,686 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Consultar Produtos | Pink &amp; Glow Cosméticos</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#DB2777',
+              pinkLight: '#FDF2F4',
+              pinkSoft: '#FCE7F3',
+              pinkDark: '#9D174D',
+              burgundy: '#4A1D2F',
+              champagne: '#E5C483',
+              gold: '#D4AF37',
+              nudeBg: '#FAF7F5',
+              nudeCard: '#F7F3EE'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles: Aesthetics & Polish -->
+<style data-purpose="custom-styling">
+    body {
+      background-color: #FAF7F5;
+      color: #33202A;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .accent-glow {
+      box-shadow: 0 4px 20px -2px rgba(219, 39, 119, 0.12);
+    }
+    /* Custom accent inputs */
+    input[type="range"]::-webkit-slider-thumb {
+      accent-color: #DB2777;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-pinkSoft selection:text-brand-pinkDark">
+<!-- BEGIN: AnnouncementBar -->
+<div class="bg-gradient-to-r from-brand-burgundy via-brand-pinkDark to-brand-burgundy text-white text-xs font-medium py-2 px-4 text-center tracking-wider flex items-center justify-center gap-2">
+<span>✨ Frete Grátis nas compras acima de R$ 149 para todo o Brasil • Parcele em até 6x sem juros</span>
+</div>
+<!-- END: AnnouncementBar -->
+<!-- BEGIN: MainHeader -->
+<header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-brand-pinkSoft shadow-sm transition-all" data-purpose="site-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 shrink-0 focus:outline-none" href="index.php">
+<img alt="Logo Pink &amp; Glow Cosméticos" class="h-14 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdT7m-kN25fGy295vw59szowX6ROBJ007WrC9r0Jmy15HM1En7ax2Aedzu-rfcmF6fM6GycSefh8hOPmqXch3Y7LxgkgbR2NnhCOQuk3FGA_rMujcC_Jbe9fAJ1_KepGKnea4Kz2QFCiP9_fzj1YeGdTaF-8HpjQocT3f5uo68JdvEdKLZWe6PHsvDWJisxg4Qyy8at6hWzIca4ugr2BDWKL3XwRWSSpznCvodlf-NDm-e4I5RcW-pjA">
+</a>
+<!-- Main Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-700">
+<a class="hover:text-brand-pink transition-colors" href="index.php">Início</a>
+<a class="text-brand-pink font-semibold border-b-2 border-brand-pink pb-1" href="consultar.php">Vitrine</a>
+<a class="hover:text-brand-pink transition-colors" href="#lancamentos">Lançamentos</a>
+<a class="hover:text-brand-pink transition-colors" href="#cuidados">Skincare</a>
+<a class="hover:text-brand-pink transition-colors" href="contato.php">Contato</a>
+</nav>
+<!-- Right Action Icons & Admin access -->
+<div class="flex items-center space-x-4 sm:space-x-5">
+<!-- Favorite Wishlist Button -->
+<button class="p-2 text-stone-600 hover:text-brand-pink rounded-full hover:bg-brand-pinkLight transition-colors" title="Favoritos" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Shopping Cart Icon with badge -->
+<a class="p-2 text-stone-600 hover:text-brand-pink relative rounded-full hover:bg-brand-pinkLight transition-colors" href="carrinho.php" title="Carrinho">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1 right-1 bg-brand-pink text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</a>
+<div class="h-5 w-px bg-stone-200 hidden sm:block"></div>
+<!-- Employee / Admin Area Button (login do funcionário from wireframe) -->
+<a class="text-xs font-semibold px-3 py-1.5 rounded-full border border-stone-300 text-stone-700 hover:border-brand-pink hover:text-brand-pink transition-colors" href="login.php">
+            Acesso Colaborador
+          </a>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: SearchHeroSection -->
+<section class="bg-gradient-to-b from-white via-brand-pinkLight/40 to-brand-nudeBg pt-8 pb-10 border-b border-brand-pinkSoft/60" data-purpose="search-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center space-x-2 text-xs text-stone-500 mb-6">
+<a class="hover:text-brand-pink" href="index.php">Home</a>
+<span>/</span>
+<a class="hover:text-brand-pink" href="consultar.php">Maquiagem Facial</a>
+<span>/</span>
+<span class="text-brand-burgundy font-medium">Bases &amp; Acabamentos</span>
+</nav>
+<!-- Prominent Search Bar (Wireframe 'consultar.php: resultado de pesquisa') -->
+<div class="max-w-3xl mx-auto text-center">
+<h1 class="font-serif text-3xl sm:text-4xl text-brand-burgundy font-bold tracking-tight mb-3">
+          Encontre Sua Beleza Radiante
+        </h1>
+<p class="text-sm text-stone-600 mb-6">
+          Fórmulas enriquecidas com ativos de skincare para uniformizar e iluminar seu tom único.
+        </p>
+<!-- Main Input Container -->
+<form action="consultar.php" class="relative shadow-md rounded-2xl bg-white border border-brand-pinkSoft focus-within:border-brand-pink focus-within:ring-2 focus-within:ring-brand-pink/20 transition-all p-1.5 flex items-center" method="GET">
+<div class="pl-4 text-stone-400">
+<svg class="w-5 h-5 text-brand-pink" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="w-full bg-transparent border-none text-stone-800 placeholder-stone-400 px-4 py-3 text-base focus:ring-0 focus:outline-none font-medium" name="q" placeholder="Pesquise por base, corretivo, pó iluminador..." type="text" value="base facial iluminadora">
+<button class="bg-gradient-to-r from-brand-pink to-brand-pinkDark text-white px-6 py-3 rounded-xl font-semibold text-sm hover:opacity-95 transition-opacity shadow-sm flex items-center gap-1.5 shrink-0" type="submit">
+<span>Buscar</span>
+</button>
+</form>
+<!-- Search quick pills & counter -->
+<div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs">
+<span class="text-stone-500 font-medium">Sugestões rápidas:</span>
+<a class="bg-white border border-stone-200 text-stone-700 px-3 py-1 rounded-full hover:border-brand-pink hover:text-brand-pink transition-colors" href="#">Base Glow</a>
+<a class="bg-white border border-stone-200 text-stone-700 px-3 py-1 rounded-full hover:border-brand-pink hover:text-brand-pink transition-colors" href="#">Ácido Hialurônico</a>
+<a class="bg-white border border-stone-200 text-stone-700 px-3 py-1 rounded-full hover:border-brand-pink hover:text-brand-pink transition-colors" href="#">Base Matte FPS 50</a>
+<a class="bg-white border border-stone-200 text-stone-700 px-3 py-1 rounded-full hover:border-brand-pink hover:text-brand-pink transition-colors" href="#">Corretivo Sérum</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SearchHeroSection -->
+<!-- BEGIN: MainContentCatalog -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-grow">
+<!-- Top Result Banner & Sorting -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-6 mb-8 border-b border-stone-200 gap-4">
+<div>
+<h2 class="text-lg font-bold text-brand-burgundy font-serif">
+          Resultados para: <span class="font-sans italic font-normal text-stone-600">"base facial iluminadora"</span>
+</h2>
+<p class="text-xs text-stone-500 mt-0.5">Mostrando <strong class="text-brand-pinkDark font-semibold">12 cosméticos encontrados</strong> com estoque ativo</p>
+</div>
+<!-- Sorting Select and layout view toggle -->
+<div class="flex items-center space-x-3 self-end sm:self-auto">
+<label class="text-xs font-medium text-stone-600 whitespace-nowrap" for="ordenar">Ordenar por:</label>
+<select class="text-xs font-semibold text-stone-700 bg-white border border-stone-300 rounded-lg px-3 py-2 pr-8 focus:ring-brand-pink focus:border-brand-pink" id="ordenar">
+<option>Mais Relevantes</option>
+<option>Mais Vendidos</option>
+<option>Menor Preço</option>
+<option>Maior Preço</option>
+<option>Melhor Avaliados</option>
+</select>
+</div>
+</div>
+<!-- 2 Column Layout (Left Filters, Right Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- BEGIN: LeftFilterSidebar -->
+<aside class="lg:col-span-1 space-y-6" data-purpose="catalog-filters">
+<div class="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm space-y-6">
+<div class="flex items-center justify-between pb-3 border-b border-stone-100">
+<h3 class="font-bold text-sm uppercase tracking-wider text-brand-burgundy">Filtros Avançados</h3>
+<button class="text-xs text-brand-pink hover:underline font-medium">Limpar tudo</button>
+</div>
+<!-- Filter Group: Categoria -->
+<div>
+<h4 class="text-xs font-bold text-stone-800 uppercase tracking-wide mb-3">Categorias</h4>
+<div class="space-y-2 text-sm text-stone-600">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input checked="" class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span class="group-hover:text-brand-pink transition-colors">Bases Líquidas &amp; Sérum</span>
+</span>
+<span class="text-xs text-stone-400 font-mono">(12)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span class="group-hover:text-brand-pink transition-colors">Corretivos Iluminadores</span>
+</span>
+<span class="text-xs text-stone-400 font-mono">(8)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span class="group-hover:text-brand-pink transition-colors">Pós Finalizadores Glow</span>
+</span>
+<span class="text-xs text-stone-400 font-mono">(5)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span class="group-hover:text-brand-pink transition-colors">Gotas Iluminadoras</span>
+</span>
+<span class="text-xs text-stone-400 font-mono">(4)</span>
+</label>
+</div>
+</div>
+<!-- Filter Group: Acabamento -->
+<div class="pt-4 border-t border-stone-100">
+<h4 class="text-xs font-bold text-stone-800 uppercase tracking-wide mb-3">Acabamento Desejado</h4>
+<div class="space-y-2 text-sm text-stone-600">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span>Glow Radiante / Viço</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span>Natural Segunda Pele</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span>Matte Aveludado Soft</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span>Acetinado Hidratante</span>
+</label>
+</div>
+</div>
+<!-- Filter Group: Tonalidades de Pele (Color Swatches) -->
+<div class="pt-4 border-t border-stone-100">
+<h4 class="text-xs font-bold text-stone-800 uppercase tracking-wide mb-3">Tonalidade &amp; Subtom</h4>
+<p class="text-[11px] text-stone-500 mb-2">Selecione para ver cartelas específicas:</p>
+<div class="grid grid-cols-5 gap-2">
+<button class="w-8 h-8 rounded-full border-2 border-brand-pink bg-[#F8E2D2] flex items-center justify-center shadow-sm ring-2 ring-brand-pink/20" title="Pele Muito Clara" type="button"></button>
+<button class="w-8 h-8 rounded-full border border-stone-300 bg-[#E8C6A5] hover:scale-105 transition-transform shadow-sm" title="Pele Clara Bege" type="button"></button>
+<button class="w-8 h-8 rounded-full border border-stone-300 bg-[#C89D73] hover:scale-105 transition-transform shadow-sm" title="Pele Média Amendoada" type="button"></button>
+<button class="w-8 h-8 rounded-full border border-stone-300 bg-[#9A6A45] hover:scale-105 transition-transform shadow-sm" title="Pele Morena Quente" type="button"></button>
+<button class="w-8 h-8 rounded-full border border-stone-300 bg-[#4F2F1B] hover:scale-105 transition-transform shadow-sm" title="Pele Retinta Profunda" type="button"></button>
+</div>
+</div>
+<!-- Filter Group: Faixa de Preço (Slider) -->
+<div class="pt-4 border-t border-stone-100">
+<div class="flex items-center justify-between mb-2">
+<h4 class="text-xs font-bold text-stone-800 uppercase tracking-wide">Faixa de Preço</h4>
+<span class="text-xs font-semibold text-brand-pinkDark">Até R$ 150,00</span>
+</div>
+<input class="w-full h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer" max="220" min="39" type="range" value="150">
+<div class="flex justify-between text-[11px] text-stone-400 mt-1 font-mono">
+<span>R$ 39</span>
+<span>R$ 220</span>
+</div>
+</div>
+<!-- Filter Group: Avaliação -->
+<div class="pt-4 border-t border-stone-100">
+<h4 class="text-xs font-bold text-stone-800 uppercase tracking-wide mb-2">Avaliações</h4>
+<label class="flex items-center gap-2 cursor-pointer text-xs text-stone-700">
+<input checked="" class="rounded border-stone-300 text-brand-pink focus:ring-brand-pink" type="checkbox">
+<span class="flex items-center text-amber-400">
+                ★★★★<span class="text-stone-300">★</span>
+</span>
+<span>4 estrelas ou mais</span>
+</label>
+</div>
+</div>
+<!-- Promo Banner inside filter -->
+<div class="rounded-2xl p-5 bg-gradient-to-br from-brand-pinkSoft/70 to-brand-nudeBg border border-brand-pinkSoft text-center">
+<span class="inline-block p-2 rounded-full bg-white text-brand-pink mb-2 shadow-xs">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<h5 class="font-serif font-bold text-stone-800 text-sm">Dúvida no tom ideal?</h5>
+<p class="text-xs text-stone-600 mt-1 mb-3">Faça nosso teste online de coloração em 1 minuto.</p>
+<button class="text-xs font-semibold text-brand-burgundy hover:text-brand-pink underline">
+            Descobrir Minha Cor →
+          </button>
+</div>
+</aside>
+<!-- END: LeftFilterSidebar -->
+<!-- BEGIN: ProductGridResults -->
+<section class="lg:col-span-3" data-purpose="product-search-results">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<article class="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-brand-pink/50 hover:shadow-lg transition-all duration-300 flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#fcf9f7] p-6 flex items-center justify-center aspect-square overflow-hidden">
+<span class="absolute top-3 left-3 bg-brand-burgundy text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider uppercase">Mais Vendido</span>
+<button class="absolute top-3 right-3 text-stone-400 hover:text-brand-pink transition-colors p-1" title="Favoritar">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<!-- Makeup Bottle Visual Representation -->
+<div class="relative flex flex-col items-center group-hover:scale-105 transition-transform duration-300">
+<div class="w-7 h-10 bg-gradient-to-b from-brand-champagne to-stone-400 rounded-t-sm shadow-xs border border-amber-200"></div>
+<div class="w-20 h-32 bg-gradient-to-br from-[#f8d8c2] via-[#ebbe9e] to-[#ddae8c] rounded-b-2xl rounded-t-md shadow-md border border-white/60 p-2 flex flex-col justify-between items-center text-center">
+<span class="text-[8px] tracking-widest uppercase font-bold text-stone-800 mt-2">Pink &amp; Glow</span>
+<div class="w-8 h-8 rounded-full bg-white/40 flex items-center justify-center">
+<span class="text-[9px] font-bold text-stone-700">GLOW</span>
+</div>
+<span class="text-[7px] text-stone-700 font-medium">Luminous SPF 30</span>
+</div>
+</div>
+<!-- Shade swatch pill -->
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 flex items-center gap-1.5 shadow-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#E8C6A5] inline-block"></span>
+<span class="text-[10px] font-semibold text-stone-700">Tom Claro 02 Nude</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+<span>★★★★★</span>
+<span class="text-stone-400 text-[11px] font-medium">(84 avaliações)</span>
+</div>
+<h3 class="font-serif font-bold text-stone-800 text-base group-hover:text-brand-pinkDark transition-colors">
+                Base Sérum Glow Radiante FPS 30
+              </h3>
+<p class="text-xs text-stone-500 mt-1 line-clamp-2">Ácido Hialurônico e Niacinamida. Cobertura média e viço natural instantâneo.</p>
+<div class="mt-4 pt-3 border-t border-stone-100 flex items-baseline justify-between">
+<div>
+<span class="text-xs text-stone-400 line-through">R$ 119,90</span>
+<p class="text-xl font-bold text-brand-burgundy font-serif">R$ 94,90</p>
+<p class="text-[11px] text-stone-500">3x de <span class="font-medium text-stone-700">R$ 31,63</span> sem juros</p>
+</div>
+</div>
+<div class="mt-4">
+<button class="w-full bg-stone-900 group-hover:bg-brand-pink text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  Comprar Agora
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-brand-pink/50 hover:shadow-lg transition-all duration-300 flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#fcf9f7] p-6 flex items-center justify-center aspect-square overflow-hidden">
+<span class="absolute top-3 left-3 bg-brand-pink text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider uppercase">Lançamento</span>
+<button class="absolute top-3 right-3 text-stone-400 hover:text-brand-pink transition-colors p-1" title="Favoritar">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<!-- Makeup Bottle Visual -->
+<div class="relative flex flex-col items-center group-hover:scale-105 transition-transform duration-300">
+<div class="w-7 h-10 bg-gradient-to-b from-brand-pinkSoft to-stone-300 rounded-t-sm border border-stone-200"></div>
+<div class="w-20 h-32 bg-gradient-to-br from-[#c89d73] to-[#ab7c52] rounded-b-2xl rounded-t-md shadow-md border border-white/60 p-2 flex flex-col justify-between items-center text-center">
+<span class="text-[8px] tracking-widest uppercase font-bold text-white mt-2">Pink &amp; Glow</span>
+<div class="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center">
+<span class="text-[9px] font-bold text-white">SKIN</span>
+</div>
+<span class="text-[7px] text-white/90 font-medium">Hydra Glow</span>
+</div>
+</div>
+<!-- Shade swatch pill -->
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 flex items-center gap-1.5 shadow-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#C89D73] inline-block"></span>
+<span class="text-[10px] font-semibold text-stone-700">Tom Médio 04 Amêndoa</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+<span>★★★★★</span>
+<span class="text-stone-400 text-[11px] font-medium">(112 avaliações)</span>
+</div>
+<h3 class="font-serif font-bold text-stone-800 text-base group-hover:text-brand-pinkDark transition-colors">
+                Base Fluida Segunda Pele FPS 45
+              </h3>
+<p class="text-xs text-stone-500 mt-1 line-clamp-2">Sensação ultraleve, acabamento aveludado e luminosidade de dentro para fora.</p>
+<div class="mt-4 pt-3 border-t border-stone-100 flex items-baseline justify-between">
+<div>
+<span class="text-xs text-stone-400 line-through">R$ 139,90</span>
+<p class="text-xl font-bold text-brand-burgundy font-serif">R$ 109,00</p>
+<p class="text-[11px] text-stone-500">3x de <span class="font-medium text-stone-700">R$ 36,33</span> sem juros</p>
+</div>
+</div>
+<div class="mt-4">
+<button class="w-full bg-stone-900 group-hover:bg-brand-pink text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  Comprar Agora
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-brand-pink/50 hover:shadow-lg transition-all duration-300 flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#fcf9f7] p-6 flex items-center justify-center aspect-square overflow-hidden">
+<span class="absolute top-3 left-3 bg-amber-700/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider uppercase">Fórmula Retinta</span>
+<button class="absolute top-3 right-3 text-stone-400 hover:text-brand-pink transition-colors p-1" title="Favoritar">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<!-- Makeup Bottle Visual -->
+<div class="relative flex flex-col items-center group-hover:scale-105 transition-transform duration-300">
+<div class="w-7 h-10 bg-gradient-to-b from-brand-gold to-stone-400 rounded-t-sm shadow-xs border border-amber-200"></div>
+<div class="w-20 h-32 bg-gradient-to-br from-[#4f2f1b] via-[#3a2011] to-[#251208] rounded-b-2xl rounded-t-md shadow-md border border-white/40 p-2 flex flex-col justify-between items-center text-center">
+<span class="text-[8px] tracking-widest uppercase font-bold text-amber-200 mt-2">Pink &amp; Glow</span>
+<div class="w-8 h-8 rounded-full bg-amber-400/20 flex items-center justify-center">
+<span class="text-[9px] font-bold text-amber-200">GOLD</span>
+</div>
+<span class="text-[7px] text-amber-100 font-medium">Pure Radiance</span>
+</div>
+</div>
+<!-- Shade swatch pill -->
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 flex items-center gap-1.5 shadow-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#4F2F1B] inline-block"></span>
+<span class="text-[10px] font-semibold text-stone-700">Tom Retinto 08 Cacau</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+<span>★★★★★</span>
+<span class="text-stone-400 text-[11px] font-medium">(97 avaliações)</span>
+</div>
+<h3 class="font-serif font-bold text-stone-800 text-base group-hover:text-brand-pinkDark transition-colors">
+                Base Radiante Glow Retinto Expert
+              </h3>
+<p class="text-xs text-stone-500 mt-1 line-clamp-2">Sem efeito acinzentado, micropigmentos dourados que valorizam peles escuras.</p>
+<div class="mt-4 pt-3 border-t border-stone-100 flex items-baseline justify-between">
+<div>
+<span class="text-xs text-stone-400 line-through">R$ 125,00</span>
+<p class="text-xl font-bold text-brand-burgundy font-serif">R$ 98,90</p>
+<p class="text-[11px] text-stone-500">3x de <span class="font-medium text-stone-700">R$ 32,96</span> sem juros</p>
+</div>
+</div>
+<div class="mt-4">
+<button class="w-full bg-stone-900 group-hover:bg-brand-pink text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  Comprar Agora
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-brand-pink/50 hover:shadow-lg transition-all duration-300 flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#fcf9f7] p-6 flex items-center justify-center aspect-square overflow-hidden">
+<span class="absolute top-3 left-3 bg-emerald-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider uppercase">Vegano 100%</span>
+<button class="absolute top-3 right-3 text-stone-400 hover:text-brand-pink transition-colors p-1" title="Favoritar">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<!-- Makeup Bottle Visual -->
+<div class="relative flex flex-col items-center group-hover:scale-105 transition-transform duration-300">
+<div class="w-7 h-10 bg-gradient-to-b from-stone-200 to-stone-400 rounded-t-sm shadow-xs border border-stone-300"></div>
+<div class="w-20 h-32 bg-gradient-to-br from-[#9a6a45] via-[#855836] to-[#6d4527] rounded-b-2xl rounded-t-md shadow-md border border-white/60 p-2 flex flex-col justify-between items-center text-center">
+<span class="text-[8px] tracking-widest uppercase font-bold text-white mt-2">Pink &amp; Glow</span>
+<div class="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center">
+<span class="text-[9px] font-bold text-white">SATIN</span>
+</div>
+<span class="text-[7px] text-white/90 font-medium">Acetinada</span>
+</div>
+</div>
+<!-- Shade swatch pill -->
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 flex items-center gap-1.5 shadow-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#9A6A45] inline-block"></span>
+<span class="text-[10px] font-semibold text-stone-700">Tom Morena 06 Caramelo</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+<span>★★★★<span class="text-stone-300">★</span></span>
+<span class="text-stone-400 text-[11px] font-medium">(42 avaliações)</span>
+</div>
+<h3 class="font-serif font-bold text-stone-800 text-base group-hover:text-brand-pinkDark transition-colors">
+                Base Líquida Acetinada Glow Touch
+              </h3>
+<p class="text-xs text-stone-500 mt-1 line-clamp-2">Ideal para peles normais a secas. Hidratação prolongada com extrato de rosas.</p>
+<div class="mt-4 pt-3 border-t border-stone-100 flex items-baseline justify-between">
+<div>
+<span class="text-xs text-stone-400 line-through">R$ 98,00</span>
+<p class="text-xl font-bold text-brand-burgundy font-serif">R$ 82,00</p>
+<p class="text-[11px] text-stone-500">3x de <span class="font-medium text-stone-700">R$ 27,33</span> sem juros</p>
+</div>
+</div>
+<div class="mt-4">
+<button class="w-full bg-stone-900 group-hover:bg-brand-pink text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  Comprar Agora
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 5 -->
+<article class="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-brand-pink/50 hover:shadow-lg transition-all duration-300 flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#fcf9f7] p-6 flex items-center justify-center aspect-square overflow-hidden">
+<span class="absolute top-3 left-3 bg-brand-gold text-brand-burgundy text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider uppercase">Destaque Glam</span>
+<button class="absolute top-3 right-3 text-stone-400 hover:text-brand-pink transition-colors p-1" title="Favoritar">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<!-- Makeup Dropper Bottle -->
+<div class="relative flex flex-col items-center group-hover:scale-105 transition-transform duration-300">
+<div class="w-4 h-7 bg-stone-700 rounded-t-sm"></div>
+<div class="w-8 h-5 bg-stone-300 rounded-t-xs border-b border-stone-400"></div>
+<div class="w-18 h-28 bg-gradient-to-br from-[#f3e5db] via-[#edd0ba] to-[#e4bea2] rounded-b-2xl shadow-md border border-white/70 p-2 flex flex-col justify-between items-center text-center">
+<span class="text-[8px] tracking-widest uppercase font-bold text-stone-700 mt-1">Pink &amp; Glow</span>
+<div class="w-6 h-6 rounded-full bg-white/50 flex items-center justify-center">
+<span class="text-[8px] font-bold text-brand-burgundy">ELIXIR</span>
+</div>
+<span class="text-[6.5px] text-stone-600 font-semibold">Glow Drops Base</span>
+</div>
+</div>
+<!-- Shade swatch pill -->
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 flex items-center gap-1.5 shadow-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F8E2D2] inline-block"></span>
+<span class="text-[10px] font-semibold text-stone-700">Tom Claro 01 Porcelana</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+<span>★★★★★</span>
+<span class="text-stone-400 text-[11px] font-medium">(130 avaliações)</span>
+</div>
+<h3 class="font-serif font-bold text-stone-800 text-base group-hover:text-brand-pinkDark transition-colors">
+                Gotas Iluminadoras &amp; Base Glow Elixir
+              </h3>
+<p class="text-xs text-stone-500 mt-1 line-clamp-2">Pode ser usada pura para cobertura leve ou misturada com hidratante diário.</p>
+<div class="mt-4 pt-3 border-t border-stone-100 flex items-baseline justify-between">
+<div>
+<span class="text-xs text-stone-400 line-through">R$ 129,00</span>
+<p class="text-xl font-bold text-brand-burgundy font-serif">R$ 115,00</p>
+<p class="text-[11px] text-stone-500">3x de <span class="font-medium text-stone-700">R$ 38,33</span> sem juros</p>
+</div>
+</div>
+<div class="mt-4">
+<button class="w-full bg-stone-900 group-hover:bg-brand-pink text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  Comprar Agora
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 6 -->
+<article class="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-brand-pink/50 hover:shadow-lg transition-all duration-300 flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#fcf9f7] p-6 flex items-center justify-center aspect-square overflow-hidden">
+<span class="absolute top-3 left-3 bg-stone-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider uppercase">Alta Duração</span>
+<button class="absolute top-3 right-3 text-stone-400 hover:text-brand-pink transition-colors p-1" title="Favoritar">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<!-- Makeup Bottle Visual -->
+<div class="relative flex flex-col items-center group-hover:scale-105 transition-transform duration-300">
+<div class="w-7 h-10 bg-gradient-to-b from-stone-800 to-stone-900 rounded-t-sm shadow-xs"></div>
+<div class="w-20 h-32 bg-gradient-to-br from-[#dfb48c] via-[#ce9e74] to-[#bc8b60] rounded-b-2xl rounded-t-md shadow-md border border-white/60 p-2 flex flex-col justify-between items-center text-center">
+<span class="text-[8px] tracking-widest uppercase font-bold text-stone-900 mt-2">Pink &amp; Glow</span>
+<div class="w-8 h-8 rounded-full bg-stone-900/10 flex items-center justify-center">
+<span class="text-[9px] font-bold text-stone-800">ALL DAY</span>
+</div>
+<span class="text-[7px] text-stone-800 font-medium">16H Longwear</span>
+</div>
+</div>
+<!-- Shade swatch pill -->
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 flex items-center gap-1.5 shadow-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#DFB48C] inline-block"></span>
+<span class="text-[10px] font-semibold text-stone-700">Tom Médio Claro 03</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+<span>★★★★★</span>
+<span class="text-stone-400 text-[11px] font-medium">(68 avaliações)</span>
+</div>
+<h3 class="font-serif font-bold text-stone-800 text-base group-hover:text-brand-pinkDark transition-colors">
+                Base Matte Glow Soft Focus 16h
+              </h3>
+<p class="text-xs text-stone-500 mt-1 line-clamp-2">Controle de oleosidade na zona T com brilho elegante nos pontos altos do rosto.</p>
+<div class="mt-4 pt-3 border-t border-stone-100 flex items-baseline justify-between">
+<div>
+<span class="text-xs text-stone-400 line-through">R$ 104,90</span>
+<p class="text-xl font-bold text-brand-burgundy font-serif">R$ 89,90</p>
+<p class="text-[11px] text-stone-500">3x de <span class="font-medium text-stone-700">R$ 29,96</span> sem juros</p>
+</div>
+</div>
+<div class="mt-4">
+<button class="w-full bg-stone-900 group-hover:bg-brand-pink text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  Comprar Agora
+                </button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination Controls -->
+<div class="mt-12 flex items-center justify-between border-t border-stone-200 pt-6">
+<p class="text-xs text-stone-500">
+            Mostrando <span class="font-medium text-stone-800">1</span> a <span class="font-medium text-stone-800">6</span> de <span class="font-medium text-stone-800">12</span> resultados
+          </p>
+<div class="flex items-center space-x-1.5">
+<button class="px-3 py-1.5 text-xs font-medium text-stone-400 bg-white border border-stone-200 rounded-lg cursor-not-allowed">Anterior</button>
+<button class="px-3 py-1.5 text-xs font-bold text-white bg-brand-pink border border-brand-pink rounded-lg">1</button>
+<button class="px-3 py-1.5 text-xs font-medium text-stone-700 bg-white border border-stone-200 rounded-lg hover:border-brand-pink">2</button>
+<button class="px-3 py-1.5 text-xs font-medium text-stone-700 bg-white border border-stone-200 rounded-lg hover:border-brand-pink">Próxima</button>
+</div>
+</div>
+</section>
+<!-- END: ProductGridResults -->
+</div>
+</main>
+<!-- END: MainContentCatalog -->
+<!-- BEGIN: TrustBadges -->
+<section class="bg-white border-y border-brand-pinkSoft/80 py-10" data-purpose="trust-badges">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-brand-pinkLight flex items-center justify-center text-brand-pink mb-3">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<h4 class="font-serif font-bold text-stone-800 text-sm">Fórmula Cruelty-Free</h4>
+<p class="text-xs text-stone-500 mt-0.5">Livre de testes em animais e dermatologicamente testada</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-brand-pinkLight flex items-center justify-center text-brand-pink mb-3">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<h4 class="font-serif font-bold text-stone-800 text-sm">Entrega Expressa</h4>
+<p class="text-xs text-stone-500 mt-0.5">Envio ágil com embalagem segura e perfumada</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-brand-pinkLight flex items-center justify-center text-brand-pink mb-3">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<h4 class="font-serif font-bold text-stone-800 text-sm">Primeira Troca Grátis</h4>
+<p class="text-xs text-stone-500 mt-0.5">Errou a cor da base? Trocamos sem complicações</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-brand-pinkLight flex items-center justify-center text-brand-pink mb-3">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<h4 class="font-serif font-bold text-stone-800 text-sm">Compra 100% Segura</h4>
+<p class="text-xs text-stone-500 mt-0.5">Certificado SSL e pagamento via PIX ou Cartão</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: TrustBadges -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-brand-burgundy text-white pt-14 pb-8" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+<!-- Brand Info -->
+<div class="space-y-3">
+<span class="font-serif text-2xl font-bold tracking-wider text-brand-champagne">PINK &amp; GLOW</span>
+<p class="text-xs text-stone-300 leading-relaxed">
+            Cosméticos de alta performance criados para celebrar a luminosidade e singularidade de cada mulher.
+          </p>
+<div class="pt-2">
+<span class="text-[11px] uppercase tracking-widest text-brand-champagne/80 font-semibold block mb-1">Central de Atendimento</span>
+<span class="text-xs text-stone-200">contato@pinkeglow.com.br</span>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-brand-champagne mb-4">Navegação</h5>
+<ul class="space-y-2 text-xs text-stone-300">
+<li><a class="hover:text-white transition-colors" href="index.php">Página Inicial</a></li>
+<li><a class="hover:text-white transition-colors" href="consultar.php">Catálogo de Bases</a></li>
+<li><a class="hover:text-white transition-colors" href="carrinho.php">Meu Carrinho</a></li>
+<li><a class="hover:text-white transition-colors" href="relatorio.php">Meus Pedidos</a></li>
+</ul>
+</div>
+<!-- Categories -->
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-brand-champagne mb-4">Linhas Exclusivas</h5>
+<ul class="space-y-2 text-xs text-stone-300">
+<li><a class="hover:text-white transition-colors" href="#">Bases Sérum Glow</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Iluminadores Líquidos</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Corretivos Hidratantes</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Pós Translúcidos Ultrafinos</a></li>
+</ul>
+</div>
+<!-- Administrative & Security -->
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-brand-champagne mb-4">Área Restrita</h5>
+<p class="text-xs text-stone-300 mb-3">Painel de gerenciamento para equipe cadastrada.</p>
+<a class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/20" href="login.php">
+<svg class="w-4 h-4 text-brand-champagne" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            Acessar Painel Admin
+          </a>
+</div>
+</div>
+<!-- Footer Bottom Copyright -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-400 gap-3">
+<p>© 2025 Pink &amp; Glow Cosméticos &amp; Makeup. Todos os direitos reservados.</p>
+<p class="flex items-center gap-4">
+<a class="hover:text-white" href="#">Termos de Uso</a>
+<span>•</span>
+<a class="hover:text-white" href="#">Política de Privacidade</a>
+<span>•</span>
+<a class="hover:text-white" href="#">Trocas e Devoluções</a>
+</p>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
